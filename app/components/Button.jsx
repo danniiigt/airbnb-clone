@@ -16,7 +16,7 @@ export const Button = ({
       text-lg
       w-full
       rounded-lg
-      hover:opacity-90
+      hover:opacity-80
       transition
       duration-300
       flex 

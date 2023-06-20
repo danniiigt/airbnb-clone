@@ -1,5 +1,3 @@
-"use client";
-
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useCallback } from "react";
 import qs from "query-string";
@@ -47,6 +45,7 @@ export const CategoryBox = ({ label, icon: Icon, selected }) => {
       gap-2
       p-3
       py-1.5
+      first:pl-0
       border-b-2
       hover:border-neutral-400
       hover:text-neutral-800

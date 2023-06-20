@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import prismaDB from "@/app/db/prismadb";
+import prismaDB from "@/app/lib/prismadb";
 import bcrypt from "bcrypt";
 
 export const authOptions = {

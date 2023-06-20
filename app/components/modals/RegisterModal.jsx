@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useRegisterModal } from "@/app/hooks/useRegisterModal";
 import { Modal } from "./Modal";
 import { Heading } from "../Heading";
-import { Input } from "../Input";
+import { Input } from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import { Button } from "../Button";
 import { FcGoogle } from "react-icons/fc";
@@ -61,7 +61,7 @@ export const RegisterModal = () => {
   };
 
   const bodyContent = (
-    <div className="">
+    <div>
       <Heading
         title="¡Bienvenido a Airbnb!"
         subtitle={

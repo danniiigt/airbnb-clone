@@ -20,11 +20,13 @@ import {
   AiOutlineAppstoreAdd,
   AiOutlineHome,
 } from "react-icons/ai";
+import { useRentModal } from "@/app/hooks/useRentModal";
 
 export const UserMenu = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -48,6 +50,14 @@ export const UserMenu = ({ currentUser }) => {
     } catch (error) {}
   };
 
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
+
   return (
     <div className="relative">
       <div
@@ -59,7 +69,7 @@ export const UserMenu = ({ currentUser }) => {
       "
       >
         <div
-          onClick={() => {}}
+          onClick={onRent}
           className="
               hidden
               md:block
@@ -136,6 +146,11 @@ export const UserMenu = ({ currentUser }) => {
                 <MenuItem
                   label="Mis propiedades"
                   icon={<AiOutlineHome size={18} />}
+                />
+                <hr className="my-2" />
+                <MenuItem
+                  label="Pon tu casa en Airbnb"
+                  onClick={rentModal.onOpen}
                 />
                 <hr className="my-2" />
                 <MenuItem

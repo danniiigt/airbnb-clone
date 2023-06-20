@@ -1,4 +1,4 @@
-import prismaDB from "@/app/db/prismadb";
+import prismaDB from "@/app/lib/prismadb";
 import bcrypt from "bcrypt";
 
 export default async function handler(req, res) {

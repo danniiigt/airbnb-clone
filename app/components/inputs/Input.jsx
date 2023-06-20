@@ -7,6 +7,7 @@ export const Input = ({
   register,
   rules,
   label,
+  min,
 }) => {
   return (
     <div className="w-full relative">
@@ -25,6 +26,7 @@ export const Input = ({
         {...register(id, rules)}
         placeholder={placeholder}
         type={type}
+        min={min}
         className={`
           w-full
           p-3
