@@ -1,4 +1,3 @@
-import React from "react";
 import { ListingSkeletonItem } from "./ListingSkeletonItem";
 
 export const ListingSkeleton = () => {

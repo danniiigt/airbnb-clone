@@ -4,7 +4,9 @@ import { ListingSkeleton } from "./components/listing/ListingSkeleton";
 const Loading = () => {
   return (
     <Container>
-      <ListingSkeleton />
+      <div className="pt-[83px]">
+        <ListingSkeleton />
+      </div>
     </Container>
   );
 };

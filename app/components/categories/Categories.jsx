@@ -23,77 +23,77 @@ export const categoryItems = [
   {
     label: "Playa",
     icon: TbBeach,
-    description: "This property is close to the beach!",
+    description: "¡Esta propiedad está cerca de la playa!",
   },
   {
     label: "Granjas",
     icon: GiWindmill,
-    description: "This property is has windmills!",
+    description: "¡Esta propiedad tiene molinos de viento!",
   },
   {
     label: "Modernas",
     icon: MdOutlineVilla,
-    description: "This property is modern!",
+    description: "¡Esta propiedad es moderna!",
   },
   {
     label: "Zona rural",
     icon: TbMountain,
-    description: "This property is in the countryside!",
+    description: "¡Esta propiedad está en el campo!",
   },
   {
     label: "Piscina",
     icon: TbPool,
-    description: "This is property has a beautiful pool!",
+    description: "¡Esta propiedad tiene una hermosa piscina!",
   },
   {
     label: "Islas",
     icon: GiIsland,
-    description: "This property is on an island!",
+    description: "¡Esta propiedad está en una isla!",
   },
   {
     label: "Rios",
     icon: GiBoatFishing,
-    description: "This property is near a lake!",
+    description: "¡Esta propiedad está cerca de un lago!",
   },
   {
     label: "Skii",
     icon: FaSkiing,
-    description: "This property has skiing activies!",
+    description: "¡Esta propiedad tiene actividades de esquí!",
   },
   {
     label: "Castillos",
     icon: GiCastle,
-    description: "This property is an ancient castle!",
+    description: "¡Esta propiedad es un castillo antiguo!",
   },
   {
     label: "Cuevas",
     icon: GiCaveEntrance,
-    description: "This property is in a spooky cave!",
+    description: "¡Esta propiedad está en una cueva espeluznante!",
   },
   {
     label: "Camping",
     icon: GiForestCamp,
-    description: "This property offers camping activities!",
+    description: "¡Esta propiedad ofrece actividades de camping!",
   },
   {
     label: "Artico",
     icon: BsSnow,
-    description: "This property is in arctic environment!",
+    description: "¡Esta propiedad está en un ambiente ártico!",
   },
   {
     label: "Desierto",
     icon: GiCactus,
-    description: "This property is in the desert!",
+    description: "¡Esta propiedad está en el desierto!",
   },
   {
     label: "Granero",
     icon: GiBarn,
-    description: "This property is in a barn!",
+    description: "¡Esta propiedad está en un granero!",
   },
   {
     label: "Lujoso",
     icon: IoDiamond,
-    description: "This property is brand new and luxurious!",
+    description: "¡Esta propiedad es nueva y lujosa!",
   },
 ];
 
@@ -113,6 +113,7 @@ export const Categories = () => {
           items-center
           justify-between
           overflow-x-auto
+          pb-1
         "
         >
           {categoryItems.map((category) => (

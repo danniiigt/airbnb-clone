@@ -23,6 +23,8 @@ export const CategoryBox = ({ label, icon: Icon, selected }) => {
       delete updatedQuery.category;
     }
 
+    console.log({ updatedQuery });
+
     const url = qs.stringifyUrl(
       {
         url: pathname,

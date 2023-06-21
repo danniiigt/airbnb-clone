@@ -8,8 +8,10 @@ import { steps } from "@/app/lib/steps";
 import { RentBodyContent } from "../rent/RentBodyContent";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export const RentModal = () => {
+  const router = useRouter();
   const rentModal = useRentModal();
   const {
     currentStep,
@@ -42,6 +44,7 @@ export const RentModal = () => {
         toast.success("Alojamiento publicado");
         rentModal.onClose();
         onResetRentForm();
+        router.refresh();
       }
     } catch (error) {
       toast.error(

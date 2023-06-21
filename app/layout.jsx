@@ -1,6 +1,7 @@
 import { Nunito } from "next/font/google";
 import { Navbar } from "./components/Navbar";
 import "./globals.css";
+import "./delays.css";
 
 import { RegisterModal } from "./components/modals/RegisterModal";
 import { ToasterProvider } from "./providers/ToasterProvider";
@@ -32,7 +33,7 @@ export default async function RootLayout({ children }) {
 
         {/* COMPONENTS */}
         <Navbar currentUser={currentUser} />
-        <div className="pb-5 pt-[193px]">{children}</div>
+        <div className="pb-5 pt-[113px]">{children}</div>
       </body>
     </html>
   );

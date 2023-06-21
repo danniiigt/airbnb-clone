@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Categories } from "./categories/Categories";
 import { Container } from "./Container";
 import { Logo } from "./navbar/Logo";
@@ -19,7 +20,9 @@ export const Navbar = ({ currentUser }) => {
             md:gap-0
           "
           >
-            <Logo />
+            <Link href="/">
+              <Logo />
+            </Link>
             <Search />
             <UserMenu currentUser={currentUser} />
           </div>

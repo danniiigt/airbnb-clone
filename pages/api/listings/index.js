@@ -1,19 +1,12 @@
 import prismaDB from "@/app/lib/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ message: "Method not allowed" });
   }
 
-  const session = await getServerSession(req, res, authOptions);
-  const currentUser = await prismaDB.user.findUnique({
-    where: {
-      email: session.user.email,
-    },
-  });
+  const currentUser = await getCurrentUser(req, res);
 
   const {
     category,
