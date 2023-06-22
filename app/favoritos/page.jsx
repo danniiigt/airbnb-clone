@@ -4,8 +4,9 @@ import { getFavoriteListings } from "../actions/getFavoriteListings";
 import { Button } from "../components/Button";
 import { Favoritos } from "../components/favoritos/Favoritos";
 import { EmptyState } from "../components/EmptyState";
+import { redirect } from "next/navigation";
 
-const FavoritosPage = async () => {
+const FavPage = async () => {
   const user = await getCurrentUser();
 
   if (!user) {
@@ -33,4 +34,4 @@ const FavoritosPage = async () => {
   return <Favoritos listings={listings} currentUser={user} />;
 };
 
-export default FavoritosPage;
+export default FavPage;
