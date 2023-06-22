@@ -114,6 +114,7 @@ export const Categories = () => {
           justify-between
           overflow-x-auto
           pb-1
+          mt-6
         "
         >
           {categoryItems.map((category) => (

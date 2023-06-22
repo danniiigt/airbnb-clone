@@ -11,5 +11,25 @@ export const getListings = async () => {
     return safeListings;
   } catch (error) {
     console.log(error);
+    return [];
+  }
+};
+
+export const getUserListings = async (userId) => {
+  try {
+    const listings = await prismaDB.listing.findMany({
+      where: {
+        userId: userId,
+      },
+    });
+    const safeListings = listings.map((listing) => ({
+      ...listing,
+      createdAt: listing.createdAt.toISOString(),
+    }));
+
+    return safeListings;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
 };

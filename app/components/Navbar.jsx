@@ -8,7 +8,7 @@ import { UserMenu } from "./navbar/UserMenu";
 export const Navbar = ({ currentUser }) => {
   return (
     <div className="fixed w-full bg-white z-10">
-      <div className="py-4 border-b mb-6">
+      <div className="py-4 border-b">
         <Container>
           <div
             className="

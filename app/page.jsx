@@ -2,7 +2,6 @@ import getCurrentUser from "./actions/getCurrentUser";
 import { getListings } from "./actions/getListings";
 import { Container } from "./components/Container";
 import { ListingCard } from "./components/listing/ListingCard";
-import { ListingSkeleton } from "./components/listing/ListingSkeleton";
 
 const Page = async () => {
   const listings = await getListings();

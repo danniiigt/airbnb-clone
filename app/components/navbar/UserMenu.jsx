@@ -2,7 +2,7 @@
 
 import { AiOutlineMenu } from "react-icons/ai";
 import { Avatar } from "./Avatar";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { MenuItem } from "./MenuItem";
 import { useRegisterModal } from "@/app/hooks/useRegisterModal";
 import { useLoginModal } from "@/app/hooks/useLoginModal";
@@ -21,12 +21,15 @@ import {
   AiOutlineHome,
 } from "react-icons/ai";
 import { useRentModal } from "@/app/hooks/useRentModal";
+import { useRouter } from "next/navigation";
 
 export const UserMenu = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
+  const router = useRouter();
+  const menuRef = useRef(null);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -117,6 +120,7 @@ export const UserMenu = ({ currentUser }) => {
 
       {isOpen && (
         <div
+          ref={menuRef}
           className="
             absolute
             rounded-xl
@@ -137,20 +141,42 @@ export const UserMenu = ({ currentUser }) => {
                 <MenuItem
                   label="Mis viajes"
                   icon={<BiPaperPlane size={18} />}
+                  onClick={() => {
+                    router.push("/viajes");
+                    setIsOpen(false);
+                  }}
                 />
                 <MenuItem
                   label="Mis favoritos"
+                  onClick={() => {
+                    router.push("/favoritos");
+                    setIsOpen(false);
+                  }}
                   icon={<MdFavoriteBorder size={18} />}
                 />
-                <MenuItem label="Mis reservas" icon={<MdInbox size={18} />} />
+                <MenuItem
+                  label="Mis reservas"
+                  onClick={() => {
+                    router.push("/reservas");
+                    setIsOpen(false);
+                  }}
+                  icon={<MdInbox size={18} />}
+                />
                 <MenuItem
                   label="Mis propiedades"
+                  onClick={() => {
+                    router.push("/propiedades");
+                    setIsOpen(false);
+                  }}
                   icon={<AiOutlineHome size={18} />}
                 />
                 <hr className="my-2" />
                 <MenuItem
                   label="Pon tu casa en Airbnb"
-                  onClick={rentModal.onOpen}
+                  onClick={() => {
+                    rentModal.onOpen();
+                    setIsOpen(false);
+                  }}
                 />
                 <hr className="my-2" />
                 <MenuItem

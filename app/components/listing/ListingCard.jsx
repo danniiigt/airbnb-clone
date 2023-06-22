@@ -22,7 +22,7 @@ export const ListingCard = ({
   const router = useRouter();
   const { getByValue } = useCountries();
 
-  const location = getByValue(data.locationValue);
+  const location = getByValue(data?.locationValue);
 
   const handleCancel = useCallback(
     (e) => {
@@ -40,8 +40,8 @@ export const ListingCard = ({
       return reservation.totalPrice;
     }
 
-    return data.price;
-  }, [reservation, data.price]);
+    return data?.price;
+  }, [reservation, data?.price]);
 
   const reservationDate = useMemo(() => {
     if (!reservation) return null;
@@ -74,9 +74,9 @@ export const ListingCard = ({
           "
         >
           <Image
-            onClick={() => router.push(`/listing/${data.id}`)}
+            onClick={() => router.push(`/listing/${data?.id}`)}
             alt="Listing image"
-            src={data.imageSrc}
+            src={data?.imageSrc}
             fill
             className="
               object-cover
@@ -89,7 +89,7 @@ export const ListingCard = ({
           />
 
           <div className="absolute top-3 right-3">
-            <HeartButton listingId={data.id} currentUser={currentUser} />
+            <HeartButton listingId={data?.id} currentUser={currentUser} />
           </div>
         </div>
 
@@ -98,12 +98,20 @@ export const ListingCard = ({
             <div className="text-lg">
               {location?.region}, {location?.label}
             </div>
-            <div className="font-light text-neutral-500 truncate max-w-full">
-              {reservation || data.category} · {data.guestCount}{" "}
-              {data.guestCount > 1 ? "huéspedes" : "huésped"} · {data.roomCount}{" "}
-              {data.roomCount > 1 ? "habitaciones" : "habitacion"} ·{" "}
-              {data.bathroomCount} {data.bathroomCount > 1 ? "baños" : "baño"}
-            </div>
+            {reservationDate ? (
+              <h1 className="font-light text-xs text-neutral-500 truncate max-w-full">
+                {reservationDate}
+              </h1>
+            ) : (
+              <h1 className="font-light text-neutral-500 truncate max-w-full">
+                {data?.category} · {data?.guestCount}{" "}
+                {data?.guestCount > 1 ? "huéspedes" : "huésped"} ·{" "}
+                {data?.roomCount}{" "}
+                {data?.roomCount > 1 ? "habitaciones" : "habitacion"} ·{" "}
+                {data?.bathroomCount}{" "}
+                {data?.bathroomCount > 1 ? "baños" : "baño"}
+              </h1>
+            )}
           </div>
           <div className="flex flex-col items-end justify-center w-full">
             <div className="font-semibold text-xl">{price}€</div>
@@ -112,12 +120,16 @@ export const ListingCard = ({
         </div>
 
         {onAction && actionLabel && (
-          <Button
-            disabled={disabled}
-            small
-            label={actionLabel}
-            onclick={handleCancel}
-          />
+          <div className="mt-2">
+            <Button
+              disabled={disabled}
+              loading={disabled}
+              small
+              onClick={handleCancel}
+            >
+              {actionLabel}
+            </Button>
+          </div>
         )}
       </div>
     </div>

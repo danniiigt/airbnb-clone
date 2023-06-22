@@ -8,12 +8,24 @@ body,
     height: 100%;
 }
 
+/* LEAFLET STYLES */
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,
 .leaflet-top {
     z-index: 0 !important;
 }
+
+/* CALENDAR STYLES */
+.rdrMonth {
+    width: 100% !important;
+}
+
+.rdrCalendarWrapper {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 
 /* Anchura y color del scrollbar */
 *::-webkit-scrollbar {

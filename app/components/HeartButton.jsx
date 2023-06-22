@@ -1,15 +1,20 @@
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useFavorite } from "../hooks/useFavorite";
 
-export const HeartButton = async ({ listingId, currentUser }) => {
-  const { isFavorited, toggleFavorite } = useFavorite({
+export const HeartButton = ({ listingId, currentUser }) => {
+  const { isFavorited, toggleFavorite, isLoading } = useFavorite({
     listingId,
     currentUser,
   });
 
+  const handleToggleFav = () => {
+    if (isLoading) return;
+    toggleFavorite();
+  };
+
   return (
     <div
-      onClick={toggleFavorite}
+      onClick={handleToggleFav}
       className="
         relative
         hover:opacity-80
