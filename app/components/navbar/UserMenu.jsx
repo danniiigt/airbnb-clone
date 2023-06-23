@@ -151,7 +151,7 @@ export const UserMenu = ({ currentUser }) => {
                     />
                   }
                   onClick={() => {
-                    router.push("/viajes");
+                    router.push("/");
                     setIsOpen(false);
                   }}
                 />
