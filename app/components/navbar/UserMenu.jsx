@@ -22,6 +22,7 @@ import {
 } from "react-icons/ai";
 import { useRentModal } from "@/app/hooks/useRentModal";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export const UserMenu = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -138,6 +139,25 @@ export const UserMenu = ({ currentUser }) => {
           <div className="flex flex-col cursor-pointer py-2 rounded">
             {currentUser ? (
               <>
+                <MenuItem
+                  label="Inicio"
+                  mobile
+                  icon={
+                    <Image
+                      src="/images/logo-icon.png"
+                      alt="Inicio"
+                      width={16}
+                      height={16}
+                    />
+                  }
+                  onClick={() => {
+                    router.push("/viajes");
+                    setIsOpen(false);
+                  }}
+                />
+
+                <hr className="my-2 block md:hidden" />
+
                 <MenuItem
                   label="Mis viajes"
                   icon={<BiPaperPlane size={18} />}

@@ -20,7 +20,7 @@ export const Navbar = ({ currentUser }) => {
             md:gap-0
           "
           >
-            <Link href="/">
+            <Link href="/" className="hidden md:block">
               <Logo />
             </Link>
             <Search />

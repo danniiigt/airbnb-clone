@@ -1,6 +1,6 @@
 "use client";
 
-export const MenuItem = ({ onClick, label, icon, bold }) => {
+export const MenuItem = ({ onClick, label, icon, bold, mobile }) => {
   return (
     <div
       onClick={onClick}
@@ -13,6 +13,7 @@ export const MenuItem = ({ onClick, label, icon, bold }) => {
         flex
         items-center
         gap-5
+        ${mobile ? "flex md:hidden" : "flex"}
     `}
     >
       {icon}
