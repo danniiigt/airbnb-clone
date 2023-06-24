@@ -7,7 +7,7 @@ export const metadata = {
 export default async function Layout({ children }) {
   return (
     <Container>
-      <div className="py-3">{children}</div>
+      <div className="pb-3 pt-[83px]">{children}</div>
     </Container>
   );
 }
