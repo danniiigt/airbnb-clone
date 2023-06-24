@@ -27,7 +27,7 @@ export const Favoritos = ({ listings, currentUser }) => {
             currentUser={currentUser}
             key={listing.id}
             data={listing}
-            delay={index * 150}
+            delay={index * 75}
           />
         ))}
       </div>

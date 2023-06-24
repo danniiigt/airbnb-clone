@@ -53,7 +53,7 @@ export const LoginModal = () => {
           loginModal.onClose();
           router.refresh();
         } else {
-          toast.error("¡Ups! Algo salió mal, intenta de nuevo");
+          toast.error("Las credenciales son incorrectas");
         }
       })
       .catch((err) => {

@@ -126,6 +126,7 @@ export const UserMenu = ({ currentUser }) => {
             absolute
             rounded-xl
             shadow-lg
+            min-w-[215px]
             w-[40vw]
             md:w-5/6
             bg-white

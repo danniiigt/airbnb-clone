@@ -152,11 +152,7 @@ export const Modal = ({
                       {secondaryLabel}
                     </Button>
                   )}
-                  <Button
-                    disabled={disabled}
-                    loading={loading}
-                    onClick={handleSubmit}
-                  >
+                  <Button disabled={disabled} onClick={handleSubmit}>
                     {actionLabel}
                   </Button>
                 </div>

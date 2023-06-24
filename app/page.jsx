@@ -19,7 +19,6 @@ const Page = async () => {
          xl:grid-cols-5
          2xl:grid-cols-6
          gap-8
-         pt-[83px]
        "
       >
         {listings.map((listing, index) => (
@@ -27,7 +26,7 @@ const Page = async () => {
             currentUser={currentUser}
             key={listing.id}
             data={listing}
-            delay={index * 150}
+            delay={index * 75}
           />
         ))}
       </div>

@@ -45,6 +45,7 @@ export const RegisterModal = () => {
       .then((res) => {
         console.log(res);
         registerModal.onClose();
+        loginModal.onOpen();
       })
       .catch((err) => {
         toast.error("Error al crear la cuenta, prueba de nuevo más tarde.");

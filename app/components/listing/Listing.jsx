@@ -27,7 +27,7 @@ export const Listing = ({ listing, reservations = [], currentUser }) => {
   const router = useRouter();
 
   const onCreateReservation = useCallback(() => {
-    if (!currentUser) return loginModal.open();
+    if (!currentUser) return loginModal.onOpen();
 
     setIsLoading(true);
 
@@ -88,7 +88,7 @@ export const Listing = ({ listing, reservations = [], currentUser }) => {
   return (
     <>
       <Container>
-        <div className="max-w-screen-lg mx-auto">
+        <div className="max-w-screen-lg mx-auto pt-[93px]">
           <div className="flex flex-col gap-6">
             <ListingHead
               title={listing.title}

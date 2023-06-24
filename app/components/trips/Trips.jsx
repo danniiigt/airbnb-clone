@@ -57,7 +57,7 @@ export const Trips = ({ reservations, currentUser }) => {
             onAction={onCancel}
             disabled={deletingId === reservation.id}
             actionLabel="Cancelar reserva"
-            delay={index * 150}
+            delay={index * 75}
           />
         ))}
       </div>

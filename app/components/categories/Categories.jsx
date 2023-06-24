@@ -23,77 +23,92 @@ export const categoryItems = [
   {
     label: "Playa",
     icon: TbBeach,
-    description: "¡Esta propiedad está cerca de la playa!",
+    description:
+      "¡Relájate y disfruta de la brisa marina en esta hermosa propiedad junto a la playa!",
   },
   {
     label: "Granjas",
     icon: GiWindmill,
-    description: "¡Esta propiedad tiene molinos de viento!",
+    description:
+      "¡Vive una experiencia campestre única en esta encantadora propiedad rodeada de molinos de viento!",
   },
   {
     label: "Modernas",
     icon: MdOutlineVilla,
-    description: "¡Esta propiedad es moderna!",
+    description:
+      "¡Sumérgete en el lujo y el estilo contemporáneo en esta propiedad moderna y sofisticada!",
   },
   {
     label: "Zona rural",
     icon: TbMountain,
-    description: "¡Esta propiedad está en el campo!",
+    description:
+      "¡Escapa del bullicio de la ciudad y disfruta de la tranquilidad del campo en esta acogedora propiedad!",
   },
   {
     label: "Piscina",
     icon: TbPool,
-    description: "¡Esta propiedad tiene una hermosa piscina!",
+    description:
+      "¡Sumérgete en la diversión y refréscate en la impresionante piscina de esta propiedad!",
   },
   {
     label: "Islas",
     icon: GiIsland,
-    description: "¡Esta propiedad está en una isla!",
+    description:
+      "¡Embárcate en una aventura única en una isla paradisíaca reservando esta propiedad exclusiva!",
   },
   {
     label: "Rios",
     icon: GiBoatFishing,
-    description: "¡Esta propiedad está cerca de un lago!",
+    description:
+      "¡Descubre la serenidad junto al agua reservando esta propiedad cerca de un hermoso lago o río!",
   },
   {
     label: "Skii",
     icon: FaSkiing,
-    description: "¡Esta propiedad tiene actividades de esquí!",
+    description:
+      "¡Disfruta de la emoción de los deportes de invierno y deslízate por las pistas en esta propiedad cerca de las montañas!",
   },
   {
     label: "Castillos",
     icon: GiCastle,
-    description: "¡Esta propiedad es un castillo antiguo!",
+    description:
+      "¡Siéntete como la realeza y vive en un auténtico castillo antiguo con esta propiedad única!",
   },
   {
     label: "Cuevas",
     icon: GiCaveEntrance,
-    description: "¡Esta propiedad está en una cueva espeluznante!",
+    description:
+      "¡Adéntrate en el misterio y la aventura al reservar esta propiedad ubicada en una cueva fascinante!",
   },
   {
     label: "Camping",
     icon: GiForestCamp,
-    description: "¡Esta propiedad ofrece actividades de camping!",
+    description:
+      "¡Experimenta la naturaleza en su máxima expresión y disfruta de actividades de camping en esta propiedad rodeada de bosques!",
   },
   {
     label: "Artico",
     icon: BsSnow,
-    description: "¡Esta propiedad está en un ambiente ártico!",
+    description:
+      "¡Sumérgete en el paisaje polar y vive una experiencia única en esta propiedad rodeada de nieve y hielo!",
   },
   {
     label: "Desierto",
     icon: GiCactus,
-    description: "¡Esta propiedad está en el desierto!",
+    description:
+      "¡Explora el encanto del desierto y disfruta de las maravillas naturales en esta propiedad rodeada de paisajes desérticos!",
   },
   {
     label: "Granero",
     icon: GiBarn,
-    description: "¡Esta propiedad está en un granero!",
+    description:
+      "¡Vive la vida rural y acogedora en esta propiedad ubicada en un encantador granero tradicional!",
   },
   {
     label: "Lujoso",
     icon: IoDiamond,
-    description: "¡Esta propiedad es nueva y lujosa!",
+    description:
+      "¡Déjate envolver por el lujo y las comodidades modernas en esta propiedad nueva y exclusiva!",
   },
 ];
 
@@ -104,7 +119,7 @@ export const Categories = () => {
 
   if (pathName == "/") {
     return (
-      <Container>
+      <Container categoriesContainer>
         <div
           className="
           flex
@@ -114,7 +129,6 @@ export const Categories = () => {
           justify-between
           overflow-x-auto
           pb-1
-          mt-6
         "
         >
           {categoryItems.map((category) => (

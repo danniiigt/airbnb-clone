@@ -61,7 +61,7 @@ export const Propiedades = ({ listings, currentUser }) => {
             onAction={onCancel}
             disabled={deletingId === listing.id}
             actionLabel="Eliminar propiedad"
-            delay={index * 150}
+            delay={index * 75}
           />
         ))}
       </div>

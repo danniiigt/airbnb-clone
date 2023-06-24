@@ -6,11 +6,13 @@ import { useRentModal } from "@/app/hooks/useRentModal";
 import { useRentForm } from "@/app/hooks/useRentForm";
 import { steps } from "@/app/lib/steps";
 import { RentBodyContent } from "../rent/RentBodyContent";
-import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import axios from "axios";
 
 export const RentModal = () => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const rentModal = useRentModal();
   const {
@@ -38,6 +40,8 @@ export const RentModal = () => {
   };
 
   const handleCreateRent = async () => {
+    setLoading(true);
+
     try {
       const res = await axios.post("/api/listings", { ...formData });
       if (res.status === 200) {
@@ -51,6 +55,8 @@ export const RentModal = () => {
         "Error al publicar el alojamiento. Revisa que todos los campos estén completos y vuelve a intentarlo."
       );
     }
+
+    setLoading(false);
   };
 
   const handleSecondaryAction = () => {
@@ -68,6 +74,8 @@ export const RentModal = () => {
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
       body={<RentBodyContent />}
+      disabled={loading}
+      loading={loading}
     />
   );
 };

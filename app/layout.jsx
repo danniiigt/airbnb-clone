@@ -33,7 +33,7 @@ export default async function RootLayout({ children }) {
 
         {/* COMPONENTS */}
         <Navbar currentUser={currentUser} />
-        <div className="pb-5 pt-[113px]">{children}</div>
+        <div className="py-5">{children}</div>
       </body>
     </html>
   );
