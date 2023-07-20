@@ -5,9 +5,19 @@ import { Heading } from "../Heading";
 import { steps } from "@/app/lib/steps";
 import { CountrySelect } from "../inputs/CountrySelect";
 import { MapClient } from "../MapClient";
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
 
 export const StepTwo = () => {
   const { formData, currentStep, setFormData } = useRentForm();
+
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../Map"), {
+        ssr: false,
+      }),
+    []
+  );
 
   return (
     <div>
@@ -17,7 +27,7 @@ export const StepTwo = () => {
       />
       <div className="py-4 space-y-2">
         <CountrySelect />
-        <MapClient />
+        <Map />
       </div>
     </div>
   );

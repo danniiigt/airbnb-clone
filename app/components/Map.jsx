@@ -15,14 +15,14 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow.src,
 });
 
-export default function Map() {
+export default function Map({ center }) {
   const { formData } = useRentForm();
   const latlng = formData.location?.latlng;
 
   return (
     <MapContainer
-      center={latlng || [51, -0.09]}
-      zoom={latlng ? 4 : 2}
+      center={center ? center : latlng || [51, -0.09]}
+      zoom={latlng || center ? 4 : 2}
       scrollWheelZoom={false}
       className="h-[35vh] rounded-lg"
     >
