@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { Button } from "../Button";
 
@@ -17,6 +17,7 @@ export const Modal = ({
   secondaryLabel,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
+  const modalRef = useRef();
 
   useEffect(() => {
     setShowModal(isOpen);
@@ -42,6 +43,23 @@ export const Modal = ({
 
     secondaryAction();
   }, [disabled, loading, secondaryAction]);
+
+  const handleClickOutside = useCallback(
+    (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        handleClose();
+      }
+    },
+    [modalRef, handleClose]
+  );
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   if (!isOpen) return null;
 
@@ -85,6 +103,7 @@ export const Modal = ({
           `}
           >
             <div
+              ref={modalRef}
               className="
               translate
               h-full
