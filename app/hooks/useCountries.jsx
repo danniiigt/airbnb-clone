@@ -12,8 +12,6 @@ const formattedCountries = countries.map((country) => {
   };
 });
 
-console.log(formattedCountries);
-
 export const useCountries = () => {
   const getAll = () => formattedCountries;
 

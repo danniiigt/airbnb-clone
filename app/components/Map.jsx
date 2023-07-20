@@ -7,7 +7,6 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { useRentForm } from "../hooks/useRentForm";
-import { useEffect } from "react";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -16,14 +15,9 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow.src,
 });
 
-export const Map = () => {
+export default function Map() {
   const { formData } = useRentForm();
   const latlng = formData.location?.latlng;
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-    }
-  }, []);
 
   return (
     <MapContainer
@@ -39,4 +33,4 @@ export const Map = () => {
       {latlng && <Marker position={latlng} />}
     </MapContainer>
   );
-};
+}

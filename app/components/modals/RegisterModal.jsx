@@ -43,7 +43,6 @@ export const RegisterModal = () => {
     axios
       .post("/api/register", data)
       .then((res) => {
-        console.log(res);
         registerModal.onClose();
         loginModal.onOpen();
       })

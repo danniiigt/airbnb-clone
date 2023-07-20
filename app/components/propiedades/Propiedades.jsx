@@ -11,8 +11,6 @@ export const Propiedades = ({ listings, currentUser }) => {
   const router = useRouter();
   const [deletingId, setDeletingId] = useState(null);
 
-  console.log(listings);
-
   const onCancel = useCallback(
     (id) => {
       setDeletingId(id);
