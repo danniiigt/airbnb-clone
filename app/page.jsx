@@ -1,10 +1,11 @@
 import getCurrentUser from "./actions/getCurrentUser";
 import { getListings } from "./actions/getListings";
 import { Container } from "./components/Container";
+import { EmptyState } from "./components/EmptyState";
 import { ListingCard } from "./components/listing/ListingCard";
 
-const Page = async () => {
-  const listings = await getListings();
+const Page = async ({ searchParams }) => {
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   return (
@@ -30,6 +31,12 @@ const Page = async () => {
           />
         ))}
       </div>
+
+      {listings.length === 0 && (
+        <div className="w-fit mx-auto">
+          <EmptyState />
+        </div>
+      )}
     </Container>
   );
 };

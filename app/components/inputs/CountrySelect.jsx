@@ -16,7 +16,10 @@ export const CountrySelect = ({ value, onChange }) => {
       isClearable
       options={getAll()}
       value={value}
-      onChange={handleCountryChange}
+      onChange={(value) => {
+        onChange?.(value);
+        handleCountryChange();
+      }}
       formatOptionLabel={(option) => (
         <div className="flex items-center gap-3">
           <div>{option.flag}</div>

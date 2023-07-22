@@ -89,6 +89,17 @@ export const SearchModal = () => {
     setStep(steps.ubicacion);
     searchModal.onClose();
     router.push(url);
+
+    // CLEAR FORM
+    setLocation(undefined);
+    setGuestCount(1);
+    setRoomCount(1);
+    setBathroomCount(1);
+    setDateRange({
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    });
   }, [
     step,
     searchModal,
@@ -123,7 +134,10 @@ export const SearchModal = () => {
 
       <CountrySelect
         value={location}
-        onChange={(value) => setLocation(value)}
+        onChange={(value) => {
+          console.log(value);
+          setLocation(value);
+        }}
       />
 
       <Map center={location?.latlng} />
