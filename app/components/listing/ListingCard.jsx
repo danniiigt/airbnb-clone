@@ -77,7 +77,10 @@ export const ListingCard = ({
             onClick={() => router.push(`/listing/${data?.id}`)}
             alt="Listing image"
             src={data?.imageSrc}
-            fill
+            quality={40}
+            height={300}
+            width={300}
+            priority
             className="
               object-cover
               h-full

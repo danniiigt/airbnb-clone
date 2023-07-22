@@ -31,7 +31,9 @@ export const ListingHead = ({
         <Image
           src={imageSrc}
           alt={title}
-          fill
+          height={550}
+          width={1024}
+          priority
           className="object-cover w-full"
         />
         <div className="absolute top-5 right-5">
