@@ -1,5 +1,3 @@
-"use client";
-
 export const Container = ({ children, categoriesContainer }) => {
   if (categoriesContainer) {
     return (

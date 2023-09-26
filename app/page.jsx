@@ -1,4 +1,3 @@
-import getCurrentUser from "./actions/getCurrentUser";
 import { getListings } from "./actions/getListings";
 import { Container } from "./components/Container";
 import { EmptyState } from "./components/EmptyState";
@@ -6,7 +5,6 @@ import { ListingCard } from "./components/listing/ListingCard";
 
 const Page = async ({ searchParams }) => {
   const listings = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
 
   return (
     <Container>
@@ -23,12 +21,7 @@ const Page = async ({ searchParams }) => {
        "
       >
         {listings.map((listing, index) => (
-          <ListingCard
-            currentUser={currentUser}
-            key={listing.id}
-            data={listing}
-            delay={index * 75}
-          />
+          <ListingCard key={listing.id} data={listing} delay={index * 75} />
         ))}
       </div>
 

@@ -1,18 +1,19 @@
-import { useCountries } from "@/app/hooks/useCountries";
+import { categoryItems } from "@/app/lib/category-items";
 import { Avatar } from "../navbar/Avatar";
 import { ListingCategory } from "./ListingCategory";
+import { useMemo } from "react";
 
 export const ListingInfo = ({
   user,
-  category,
   description,
   roomCount,
   guestCount,
   bathroomCount,
-  locationValue,
+  listing,
 }) => {
-  const { getByValue } = useCountries();
-  const coords = getByValue(locationValue)?.latlng;
+  const category = useMemo(() => {
+    return categoryItems.find((item) => item.label === listing.category);
+  }, [listing]);
 
   return (
     <div className="col-span-4 flex flex-col gap-8">

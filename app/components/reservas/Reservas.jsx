@@ -39,7 +39,7 @@ export const Reservas = ({ currentUser, reservations }) => {
       />
       <div
         className="
-          mt-10
+          mt-6
           grid
           grid-cols-1
           sm:grid-cols-2

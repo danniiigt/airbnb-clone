@@ -1,9 +1,7 @@
+import { SectionsSkeleton } from "../components/SectionsSkeleton";
+
 const Loading = () => {
-  return (
-    <div>
-      <h1>Cargando viajes...</h1>
-    </div>
-  );
+  return <SectionsSkeleton />;
 };
 
 export default Loading;

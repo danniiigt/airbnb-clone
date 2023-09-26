@@ -1,12 +1,9 @@
-"use client";
-
 import { useCountries } from "@/app/hooks/useCountries";
-import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
-import Image from "next/image";
-import { HeartButton } from "../HeartButton";
 import { Button } from "../Button";
+import Image from "next/image";
+import Link from "next/link";
 import "animate.css";
 
 export const ListingCard = ({
@@ -16,10 +13,8 @@ export const ListingCard = ({
   disabled,
   actionLabel,
   actionId,
-  currentUser,
   delay,
 }) => {
-  const router = useRouter();
   const { getByValue } = useCountries();
 
   const location = getByValue(data?.locationValue);
@@ -73,15 +68,15 @@ export const ListingCard = ({
             rounded-xl
           "
         >
-          <Image
-            onClick={() => router.push(`/listing/${data?.id}`)}
-            alt="Listing image"
-            src={data?.imageSrc}
-            quality={90}
-            height={300}
-            width={300}
-            priority
-            className="
+          <Link href={`/listing/${data?.id}`} scroll={true}>
+            <Image
+              alt="Listing image"
+              src={data?.imageSrc}
+              quality={90}
+              height={300}
+              width={300}
+              priority
+              className="
               object-cover
               h-full
               w-full
@@ -89,11 +84,8 @@ export const ListingCard = ({
               transition
               object-center
             "
-          />
-
-          <div className="absolute top-3 right-3">
-            <HeartButton listingId={data?.id} currentUser={currentUser} />
-          </div>
+            />
+          </Link>
         </div>
 
         <div className="mt-2 flex justify-between items-center w-full">

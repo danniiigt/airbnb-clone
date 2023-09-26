@@ -3,7 +3,7 @@ import { Container } from "../Container";
 export const SingleListingSkeleton = () => {
   return (
     <Container>
-      <div className="max-w-screen-lg mx-auto my-4">
+      <div className="max-w-screen-lg mx-auto my-4 mt-24">
         <div className="space-y-3">
           <div className="bg-gray-200/70 animate-pulse w-3/4 h-5 rounded"></div>
           <div className="bg-gray-200/70 animate-pulse w-1/4 h-3 rounded"></div>

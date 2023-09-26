@@ -71,12 +71,7 @@ export const getListings = async (params) => {
       },
     });
 
-    const safeListings = listings.map((listing) => ({
-      ...listing,
-      createdAt: listing.createdAt.toISOString(),
-    }));
-
-    return safeListings;
+    return listings;
   } catch (error) {
     console.log(error);
     return [];

@@ -1,10 +1,10 @@
-import Link from "next/link";
-import getCurrentUser from "../actions/getCurrentUser";
 import { getFavoriteListings } from "../actions/getFavoriteListings";
 import { Button } from "../components/Button";
 import { Favoritos } from "../components/favoritos/Favoritos";
 import { EmptyState } from "../components/EmptyState";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import getCurrentUser from "../actions/getCurrentUser";
 
 const FavPage = async () => {
   const user = await getCurrentUser();

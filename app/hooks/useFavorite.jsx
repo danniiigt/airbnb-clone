@@ -1,3 +1,5 @@
+"use client";
+
 import { useLoginModal } from "./useLoginModal";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";

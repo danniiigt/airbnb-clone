@@ -36,9 +36,9 @@ export const ListingHead = ({
           priority
           className="object-cover w-full"
         />
-        <div className="absolute top-5 right-5">
+        {/* <div className="absolute top-5 right-5">
           <HeartButton listingId={id} currentUser={currentUser} />
-        </div>
+        </div> */}
       </div>
     </>
   );

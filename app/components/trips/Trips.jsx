@@ -36,7 +36,7 @@ export const Trips = ({ reservations, currentUser }) => {
       <Heading title="Mis viajes" subtitle="Estos son tus viajes reservados" />
       <div
         className="
-          mt-10
+          mt-6
           grid
           grid-cols-1
           sm:grid-cols-2

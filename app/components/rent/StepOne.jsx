@@ -1,8 +1,8 @@
 import { useRentForm } from "@/app/hooks/useRentForm";
 import { Heading } from "../Heading";
-import { categoryItems } from "../categories/Categories";
 import { CategoryInput } from "../categories/CategoryInput";
 import { steps } from "@/app/lib/steps";
+import { categoryItems } from "@/app/lib/category-items";
 
 export const StepOne = () => {
   const { formData, currentStep, setFormData } = useRentForm();
