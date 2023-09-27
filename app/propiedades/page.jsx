@@ -1,9 +1,11 @@
-import getCurrentUser from "../actions/getCurrentUser";
 import { redirect } from "next/navigation";
 import { getUserListings } from "../actions/getListings";
 import { EmptyState } from "../components/EmptyState";
 import { RentModalButton } from "../components/RentModalButton";
 import { Propiedades } from "../components/propiedades/Propiedades";
+import getCurrentUser from "../actions/getCurrentUser";
+
+export const dynamic = "force-dynamic";
 
 const page = async () => {
   const user = await getCurrentUser();

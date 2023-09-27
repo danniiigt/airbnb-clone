@@ -1,33 +1,60 @@
+"use client";
+
 import { useCountries } from "@/app/hooks/useCountries";
 import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import { Button } from "../Button";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import "animate.css";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 export const ListingCard = ({
   data,
   reservation,
-  onAction,
-  disabled,
   actionLabel,
   actionId,
   delay,
+  listingId,
 }) => {
   const { getByValue } = useCountries();
+  const [deletingId, setDeletingId] = useState(null);
+  const router = useRouter();
 
   const location = getByValue(data?.locationValue);
+
+  const onCancel = useCallback(
+    (id) => {
+      setDeletingId(id);
+
+      axios
+        .delete(`/api/listings/${id}`)
+        .then(() => {
+          router.refresh();
+          toast.success("Propiedad eliminada");
+        })
+        .catch(() => {
+          toast.error("No se pudo eliminar la propiedad");
+        })
+        .finally(() => {
+          setDeletingId(null);
+        });
+    },
+    [router]
+  );
 
   const handleCancel = useCallback(
     (e) => {
       e.stopPropagation();
 
-      if (disabled) return;
+      if (deletingId === listingId) return;
 
-      onAction?.(actionId);
+      onCancel?.(actionId);
     },
-    [onAction, actionId, disabled]
+    [actionId, deletingId, listingId, onCancel]
   );
 
   const price = useMemo(() => {
@@ -114,11 +141,11 @@ export const ListingCard = ({
           </div>
         </div>
 
-        {onAction && actionLabel && (
+        {actionLabel && (
           <div className="mt-2">
             <Button
-              disabled={disabled}
-              loading={disabled}
+              disabled={deletingId === listingId}
+              loading={deletingId === listingId}
               small
               onClick={handleCancel}
             >

@@ -14,7 +14,7 @@ const TripsPage = async () => {
   }
 
   const reservations = await getReservations({
-    userId: user?.id,
+    // userId: user?.id,
   });
 
   const customButton = (

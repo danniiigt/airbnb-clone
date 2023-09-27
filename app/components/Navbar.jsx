@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Categories } from "./categories/Categories";
 import { Container } from "./Container";
 import { Logo } from "./navbar/Logo";
 import { Search } from "./navbar/Search";
 import { UserMenu } from "./navbar/UserMenu";
+import { Categories } from "./categories/Categories";
+import { Suspense } from "react";
 
 export const Navbar = ({ currentUser }) => {
   return (
@@ -30,7 +31,9 @@ export const Navbar = ({ currentUser }) => {
           </Container>
         </div>
       </div>
-      <Categories />
+      <Suspense>
+        <Categories />
+      </Suspense>
     </>
   );
 };

@@ -1,36 +1,7 @@
-"use client";
-
-import { useCallback, useState } from "react";
 import { Heading } from "../Heading";
-import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
 import { ListingCard } from "../listing/ListingCard";
-import axios from "axios";
 
 export const Propiedades = ({ listings, currentUser }) => {
-  const router = useRouter();
-  const [deletingId, setDeletingId] = useState(null);
-
-  const onCancel = useCallback(
-    (id) => {
-      setDeletingId(id);
-
-      axios
-        .delete(`/api/listings/${id}`)
-        .then(() => {
-          router.refresh();
-          toast.success("Propiedad eliminada");
-        })
-        .catch(() => {
-          toast.error("No se pudo eliminar la propiedad");
-        })
-        .finally(() => {
-          setDeletingId(null);
-        });
-    },
-    [router]
-  );
-
   return (
     <>
       <Heading
@@ -56,8 +27,7 @@ export const Propiedades = ({ listings, currentUser }) => {
             data={listing}
             currentUser={currentUser}
             actionId={listing.id}
-            onAction={onCancel}
-            disabled={deletingId === listing.id}
+            listingId={listing.id}
             actionLabel="Eliminar propiedad"
             delay={index * 75}
           />

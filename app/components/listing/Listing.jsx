@@ -3,7 +3,7 @@ import { ListingHead } from "./ListingHead";
 import { ListingInfo } from "./ListingInfo";
 import { ListingReservation } from "./ListingReservation";
 
-export const Listing = ({ listing, reservations, currentUser }) => {
+export const Listing = async ({ listing, reservations, currentUser }) => {
   return (
     <>
       <Container>
