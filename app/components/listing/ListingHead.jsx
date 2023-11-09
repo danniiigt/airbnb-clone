@@ -34,7 +34,7 @@ export const ListingHead = ({
           height={550}
           width={1024}
           priority
-          className="object-cover w-full"
+          className="object-cover w-full h-full"
         />
         {/* <div className="absolute top-5 right-5">
           <HeartButton listingId={id} currentUser={currentUser} />

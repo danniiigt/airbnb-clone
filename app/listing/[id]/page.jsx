@@ -2,7 +2,15 @@ import { getListingById } from "@/app/actions/getListingById";
 import { getReservations } from "@/app/actions/getReservations";
 import { Container } from "@/app/components/Container";
 import { Listing } from "@/app/components/listing/Listing";
+import { getListingsIds } from "@/app/actions/getListingsIds";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+
+export async function generateStaticParams() {
+  const listingsIds = await getListingsIds();
+  return listingsIds.map((listing) => ({
+    id: listing.id,
+  }));
+}
 
 const ListingPage = async ({ params }) => {
   const { id } = params;

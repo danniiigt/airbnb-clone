@@ -8,7 +8,6 @@ import { ToasterProvider } from "./providers/ToasterProvider";
 import { LoginModal } from "./components/modals/LoginModal";
 import { RentModal } from "./components/modals/RentModal";
 import { SearchModal } from "./components/modals/SearchModal";
-import getCurrentUser from "./actions/getCurrentUser";
 
 const inter = Nunito({ subsets: ["latin"] });
 
@@ -19,8 +18,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const currentUser = await getCurrentUser();
-
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -34,7 +31,7 @@ export default async function RootLayout({ children }) {
         <SearchModal />
 
         {/* COMPONENTS */}
-        <Navbar currentUser={currentUser} />
+        <Navbar />
         <div className="py-5">{children}</div>
       </body>
     </html>

@@ -139,9 +139,7 @@ export const LoginModal = () => {
           disabled={isLoading}
           icon={<FcGoogle />}
           onClick={() => {
-            signIn("google").then((re) => {
-              console.log(re);
-            });
+            signIn("google");
           }}
         >
           Acceder con Google

@@ -69,6 +69,7 @@ export const getListings = async (params) => {
       orderBy: {
         createdAt: "desc",
       },
+      take: 20,
     });
 
     return listings;
