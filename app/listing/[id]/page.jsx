@@ -5,6 +5,9 @@ import { Listing } from "@/app/components/listing/Listing";
 import { getListingsIds } from "@/app/actions/getListingsIds";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
+export const dynamic = "force-static";
+export const revalidate = false;
+
 export async function generateStaticParams() {
   const listingsIds = await getListingsIds();
   return listingsIds.map((listing) => ({
